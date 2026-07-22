@@ -147,7 +147,7 @@ bool ArrayAnalyzer::somme_sous_ensemble_existe(int x) const {
     std::vector<bool> dp(x + 1, false);
     dp[0] = true;
 
-    for (int num : data) {
+    for (const int& num : data) {
         for (int j = x; j >= num; --j) {
             if (dp[j - num]) dp[j] = true;
         }
@@ -161,7 +161,7 @@ std::vector<int> ArrayAnalyzer::somme_sous_ensemble_reconstruire(int x) const {
     std::vector<int> parent(x + 1, -1);
     parent[0] = 0;
 
-    for (int num : data) {
+    for (const int& num : data) {
         if (num <= 0) continue;
         for (int j = x; j >= num; --j) {
             if (parent[j - num] != -1 && parent[j] == -1) {
