@@ -1,1 +1,0 @@
-/usr/bin/g++ CMakeFiles/main_app.dir/main.cpp.o CMakeFiles/main_app.dir/partial_sum.cpp.o -o main_app 
