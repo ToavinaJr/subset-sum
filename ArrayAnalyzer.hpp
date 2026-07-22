@@ -1,5 +1,4 @@
 #ifndef ARRAY_ANALYZER_HPP
-#ifndef ARRAY_ANALYZER_HPP
 #define ARRAY_ANALYZER_HPP
 
 #include <vector>
