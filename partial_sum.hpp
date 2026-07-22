@@ -23,4 +23,7 @@ bool trois_somme_pointeurs(int T[], int taille, int x);   // Tri + deux pointeur
 // 4. Somme de n éléments (Subset Sum)
 bool somme_sous_ensemble(const int T[], int taille, int x);
 
+// 5. Somme de n éléments (Subset Sum) avec vecteur dynamique
+std::vector<int> somme_sous_ensemble(const std::vector<int>& T, int x);
+
 #endif // PARTIAL_SUM_HPP

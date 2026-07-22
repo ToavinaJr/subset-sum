@@ -1,5 +1,6 @@
 #include "partial_sum.hpp"
 #include <iostream>
+#include <vector>
 
 // ==========================================
 // OUTIL DE TRI MAISON (Quicksort sur int[])
@@ -192,4 +193,30 @@ bool somme_sous_ensemble(const int T[], int taille, int x) {
     bool resultat = dp[x];
     delete[] dp; // Libération propre de la mémoire
     return resultat;
+}
+
+// Algo pour la reconstruction de la solution (si nécessaire)
+std::vector<int> somme_sous_ensemble(const std::vector<int>& T, int x) {
+    if (x <= 0) return {};
+
+    std::vector<int> parent(x + 1, -1);
+    parent[0] = 0;
+
+    for (int num : T) {
+        if (num <= 0) continue;
+        for (int j = x; j >= num; --j) {
+            if (parent[j - num] != -1 && parent[j] == -1) {
+                parent[j] = num;
+            }
+        }
+    }
+
+    if (parent[x] == -1) return {};
+
+    std::vector<int> solution;
+    for (int curr = x; curr > 0; curr -= parent[curr]) {
+        solution.push_back(parent[curr]);
+    }
+
+    return solution;
 }
